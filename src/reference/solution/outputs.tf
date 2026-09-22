@@ -1,0 +1,15 @@
+# L2-OUTPUTS: root-facing values pass through the local wrapper.
+output "id" {
+  description = "Azure resource ID returned through the local wrapper; unknown until an authorized deployment outside Lab 2."
+  value       = module.resource_group.id
+}
+
+output "name" {
+  description = "Resource-group name returned by the local wrapper and its pinned AVM dependency."
+  value       = module.resource_group.name
+}
+
+output "location" {
+  description = "Resource-group region returned by the local wrapper and its pinned AVM dependency."
+  value       = module.resource_group.location
+}

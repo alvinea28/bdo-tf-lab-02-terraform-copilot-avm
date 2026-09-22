@@ -1,0 +1,10 @@
+variable "name" {
+  type        = string
+  description = "Name."
+  nullable    = false
+
+  validation {
+    condition     = can(regex("^rg-bdo-lab02-[a-z0-9-]{3,30}$", var.name))
+    error_message = "Use rg-bdo-lab02- followed by 3-30 lowercase letters, digits, or hyphens."
+  }
+}

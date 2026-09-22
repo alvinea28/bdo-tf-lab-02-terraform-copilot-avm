@@ -1,0 +1,8 @@
+# L2-VALUES: copy into src/terraform/terraform.tfvars.example, not a secret file.
+resource_group_name = "rg-bdo-lab02-learner01"
+location            = "southeastasia"
+tags = {
+  environment = "training"
+  lab         = "02"
+  owner       = "learner01"
+}

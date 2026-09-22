@@ -1,0 +1,34 @@
+# L2-WRAPPER-INPUTS: root policy plus a minimal reusable wrapper contract.
+variable "name" {
+  type        = string
+  description = "Lab 2 resource-group name forwarded to AVM name; require rg-bdo-lab02- and a 3-30 character lowercase participant suffix."
+  nullable    = false
+
+  validation {
+    condition     = can(regex("^rg-bdo-lab02-[a-z0-9-]{3,30}$", var.name))
+    error_message = "Use rg-bdo-lab02- followed by 3-30 lowercase letters, digits, or hyphens."
+  }
+}
+
+variable "location" {
+  type        = string
+  description = "Lowercase Azure region slug forwarded unchanged to AVM; the calling root enforces the instructor's allowed_locations list."
+  nullable    = false
+
+  validation {
+    condition     = can(regex("^[a-z0-9]+$", var.location))
+    error_message = "Use a lowercase Azure region slug such as southeastasia, not a display name."
+  }
+}
+
+variable "tags" {
+  type        = map(string)
+  description = "Non-secret tags forwarded unchanged to AVM; use non-empty keys and values and an anonymous participant owner code."
+  default     = {}
+  nullable    = false
+
+  validation {
+    condition     = alltrue([for key, value in var.tags : trimspace(key) != "" && try(trimspace(value) != "", false)])
+    error_message = "Tag keys and values must be non-empty strings; use anonymous, non-secret values."
+  }
+}

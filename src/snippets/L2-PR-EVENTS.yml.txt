@@ -1,0 +1,11 @@
+# L2-PR-EVENTS: replace only the active workflow's on block, not the whole file.
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review

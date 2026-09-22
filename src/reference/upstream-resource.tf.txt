@@ -1,0 +1,11 @@
+# Read-only historical extract: NOT part of either executable Terraform root.
+# Source: Azure-Samples/terraform-github-actions, commit
+# 2e6dee79491254d4eea193b1691d2c85fd32af0f, main.tf (resource block only).
+# https://github.com/Azure-Samples/terraform-github-actions/blob/2e6dee79491254d4eea193b1691d2c85fd32af0f/main.tf
+# Copyright (c) Microsoft Corporation. MIT; see the repository LICENSE.
+# Do not rename this file to .tf, import it, or deploy it before the wrapper.
+# "rg-aks" is a label; this resource does not create an AKS cluster.
+resource "azurerm_resource_group" "rg-aks" {
+  name     = var.resource_group_name
+  location = var.location
+}

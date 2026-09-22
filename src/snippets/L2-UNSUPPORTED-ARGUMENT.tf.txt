@@ -1,0 +1,3 @@
+# L2-UNSUPPORTED-ARGUMENT: insert ONLY the next line inside module "avm".
+# This is deliberately invalid. Do not copy this file to the Terraform root.
+resource_group_name = var.name
